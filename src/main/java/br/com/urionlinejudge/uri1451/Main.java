@@ -11,16 +11,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		StringBuilder builder = new StringBuilder();
-		char[] texto;
-		boolean beiju;
-		int indice;
 		
 		while (sc.hasNext()) {
-			texto = sc.next().toCharArray();
-			builder.delete(0, builder.length());
-			beiju = false;
-			indice = 0;
+			char[] texto = sc.next().toCharArray();
+			StringBuilder builder = new StringBuilder();
+			boolean beiju = false;
+			int indice = 0;
 			for (int i = 0; i < texto.length; i++) {
 				switch (texto[i]) {
 				case '[':

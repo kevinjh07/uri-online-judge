@@ -15,9 +15,8 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int iteracoes = sc.nextInt();
 
-		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < iteracoes; i++) {
-			builder.delete(0, builder.length());
+			StringBuilder builder = new StringBuilder();
 			char[] texto = sc.next().toCharArray();
 			int deslocamentos = sc.nextInt();
 			for (int j = 0; j < texto.length; j++) {
