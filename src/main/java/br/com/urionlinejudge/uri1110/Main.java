@@ -13,11 +13,12 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		while (sc.hasNext()) {
-			StringBuilder builder = new StringBuilder();
 			int valor = sc.nextInt();
 			if (valor == 0) {
 				break;
 			}
+			StringBuilder builder = new StringBuilder();
+			builder.delete(0, builder.length());
 			int[] vetor = new int[valor];
 			for (int i = 0; i < vetor.length; i++) {
 				vetor[i] = i + 1;
@@ -28,16 +29,19 @@ public class Main {
 				if (i < vetor.length - 2) {
 					builder.append(", ");
 				}
-				for (int j = i + 1; j < vetor.length - 1; j++) {
-					int atual = vetor[j];
+				int proximo = i + 1;
+				int atual = vetor[proximo];
+				for (int j = proximo; j < vetor.length - 1; j++) {
 					vetor[j] = vetor[j + 1];
-					vetor[j + 1] = atual;
 				}
+				vetor[vetor.length - 1] = atual;
 			}
-			builder.append("\n").append("Remaining card: ").append(vetor[vetor.length - 1]);
+			builder.append("\n")
+				.append("Remaining card: ")
+				.append(vetor[vetor.length - 1]);
 			System.out.println(builder.toString());
 		}
 		sc.close();
 	}
-		
+
 }
