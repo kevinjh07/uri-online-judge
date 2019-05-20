@@ -3,7 +3,6 @@ package br.com.urionlinejudge.uri1068;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Stack;
 
 /**
  * 
@@ -17,20 +16,20 @@ public class Main {
 		BufferedReader reader = new BufferedReader(stream);
 		String str;
 		while ((str = reader.readLine()) != null) {
-			Stack<String> stack = new Stack<>();
-			for (int i = 0; i < str.length(); i++) {
-				String current = String.valueOf(str.charAt(i));
-				if (current.equals("(")) {
-					stack.push(current);
-				} else if (current.equals(")")) {
-					if (stack.isEmpty()) {
-						stack.push(current);
+			int opening = 0;
+			int closing = 0;
+			for (int i = 0; i < str.length(); ++i) {
+				char current = str.charAt(i);
+				if (current == '(') {
+					++opening;
+				} else if (current == ')') {
+					++closing;
+					if (closing > opening) {
 						break;
 					}
-					stack.pop();
 				}
 			}
-			if (stack.isEmpty()) {
+			if (opening == closing) {
 				System.out.println("correct");
 			} else {
 				System.out.println("incorrect");
