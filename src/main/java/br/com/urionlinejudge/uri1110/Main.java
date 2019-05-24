@@ -13,12 +13,8 @@ public class Main {
         InputStreamReader stream = new InputStreamReader(System.in);
         BufferedReader reader = new BufferedReader(stream);
         StringBuilder builder = new StringBuilder();
-        String str;
-        while ((str = reader.readLine()) != null) {
-            int valor = Integer.parseInt(str);
-            if (valor == 0) {
-                break;
-            }
+        int valor;
+        while ((valor = Integer.parseInt(reader.readLine())) != 0) {
             builder.delete(0, builder.length());
             int[] vetor = new int[valor];
             for (int i = 0; i < vetor.length; ++i) {
